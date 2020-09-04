@@ -5,9 +5,17 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: ghcr.io/fwilhe2/k:bootstrap
+    container: ghcr.io/fwilhe2/k:latest
     steps:
     - uses: actions/checkout@v2
     - name: test
       run: |
-        kotlin jvm/main-kts/scripts/kotlin-shell.main.kts
+        kotlin jvm/main-kts/scripts/kotlin-shell.main.kts /opt
+
+    - name: test
+      run: |
+        kotlin jvm/main-kts/scripts/kotlin-shell.main.kts /
+        
+    - name: test
+      run: |
+        kotlin jvm/main-kts/scripts/kotlin-shell.main.kts /src
